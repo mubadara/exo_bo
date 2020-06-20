@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New article</title>
+</head>
+<body>
+    <form method="post">
+    <label for="name">nom<input type="text" value="{{ article.name }}" /></label>
+    {% if errors.name is defined %}
+        <div class="invalid-feedback">
+            {{ messages.name }}
+        </div>
+    {% endif %}
+    <button type="submit">envoyer</button>
+    </form>
+
+</body>
+</html>

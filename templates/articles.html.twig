@@ -6,7 +6,6 @@
     <title>Articles</title>
 </head>
 <body>
-    <h1>Hello</h1>
     <form>
     {% for article in articles %}
      <label for="articleid">ID<input value =" {{ article.id }}"/></label> 
@@ -16,5 +15,6 @@
      <label for="articlequantity">quantity<input value="{{ article.quantity }}"/></label> 
     {% endfor %}
     </form>
+        <a href='article-new.php'>New article</a>
 </body>
 </html>
