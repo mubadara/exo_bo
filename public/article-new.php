@@ -24,10 +24,10 @@ $article = [
     'price' => '',
     'quantity' => '',
 ];
-$errors = [];
-$messages = [];
-
+    $errors = [];
+    $messages = [];
 if ($_POST) {
+    
     if (isset($_POST['name'])) {
         $article['name'] = $_POST['name'];
     }
