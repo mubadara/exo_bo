@@ -1,0 +1,12 @@
+{
+    "name": "popschool/exo_bo1",
+    "authors": [
+        {
+            "name": "mubadara",
+            "email": "renaud.bineau@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.0"
+    }
+}
