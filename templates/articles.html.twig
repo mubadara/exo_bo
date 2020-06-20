@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <form>
+    {% for article in articles %}
+     <label for="articleid">ID<input value =" {{ article.id }}"/></label> 
+     <label for="articlename">name<input value="{{ article.name }}"/></label> 
+     <label for="articledescription">description<input value="{{ article.description }}"/></label> 
+     <label for="articleprice">price<input value="{{ article.price }}"/></label> 
+     <label for="articlequantity">quantity<input value="{{ article.quantity }}"/></label> 
+    {% endfor %}
+    </form>
+</body>
+</html>
