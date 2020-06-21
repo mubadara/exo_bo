@@ -31,7 +31,7 @@ if ($_POST) {
     if (isset($_POST['name'])) {
         $article['name'] = $_POST['name'];
     }
-
+    
     if (!isset($_POST['name'])|| empty($_POST['name'])) {
         $errors['name'] = true;
         $messages['name'] = 'Merci de renseigner le nom de l\'article';
