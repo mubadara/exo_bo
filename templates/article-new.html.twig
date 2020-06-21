@@ -10,7 +10,25 @@
     <label for="name">nom<input type="text" value="{{ article.name }}" /></label>
     {% if errors.name is defined %}
         <div class="invalid-feedback">
-            lol
+            {{messages.name}}
+        </div>
+    {% endif %}
+    <label for="description">description<input type="text" value="{{ article.description }}" /></label> 
+    {% if errors.description is defined %}
+        <div class="invalid-feedback">
+            {{ messages.description }}
+        </div>
+    {% endif %}
+    <label for="price">price<input type="text" value="{{ article.price }}" /></label> 
+    {% if errors.price is defined %}
+        <div class="invalid-feedback">
+            {{ messages.price }}
+        </div>
+    {% endif %}
+    <label for="quantity">quantity<input type="text" value="{{ article.quantity }}" /></label> 
+    {% if errors.quantity is defined %}
+        <div class="invalid-feedback">
+            {{ messages.quantity }}
         </div>
     {% endif %}
     <button type="submit">envoyer</button>
