@@ -16,17 +16,16 @@ $twig = new \Twig\Environment($loader, [
 // chargement de l'extension Twig_Extension_Debug
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 // chargement de données des articles
-$articles = require __DIR__.'/articles-data.php';
 $article = [
     'id' => '',
-    'name' =>'',
+    'name' => '',
     'description' => '',
     'price' => '',
     'quantity' => '',
 ];
     $errors = [];
     $messages = [];
-if ($_POST) {
+if($_POST) {
     
     if (isset($_POST['name'])) {
         $article['name'] = $_POST['name'];
