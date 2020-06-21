@@ -7,25 +7,25 @@
 </head>
 <body>
     <form method="post">
-    <input type="text" value="{{ article.name }}" placeholder="name" />
+    <input type="text" value="{{ article.name }}" placeholder="name" name="name" class="form-control"/>
     {% if errors.name is defined %}
         <div class="invalid-feedback">
             {{ messages.name }}
         </div>
     {% endif %}
-    <input type="text" value="{{ article.description }}" placeholder="description"/> 
+    <input type="text" value="{{ article.description }}" placeholder="description" name="description" class="form-control"/> 
     {% if errors.description is defined %}
         <div class="invalid-feedback">
             {{ messages.description }}
         </div>
     {% endif %}
-    <input type="text" value="{{ article.price }}" placeholder="price">
+    <input type="text" value="{{ article.price }}" placeholder="price" name="price" class="form-control">
     {% if errors.price is defined %}
         <div class="invalid-feedback">
             {{ messages.price }}
         </div>
     {% endif %}
-    <input type="text" value="{{ article.quantity }}" placeholder="quantity" />
+    <input type="text" value="{{ article.quantity }}" placeholder="quantity" name="quantity" class="form-control"/>
     {% if errors.quantity is defined %}
         <div class="invalid-feedback">
             {{ messages.quantity }}
