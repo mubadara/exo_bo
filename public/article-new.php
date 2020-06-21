@@ -43,14 +43,15 @@ if($_POST) {
         $errors['name'] = true;
         $messages['name'] = 'Merci de renseigner le nom de l\'article';
     }
-    elseif (strlen($_POST['name'] < 2) || strlen($_POST['name']) > 100) {
+    elseif (strlen($_POST['name']) < 2 || strlen($_POST['name']) > 100) {
         $errors['name'] = true;
         $messages['name'] = 'Le nombre de caractères doit être inclu en 2 et 100 pour le champ nom';
     }
-    if (isset($_POST['description']) && strpos($_POST['description'], '<')
-    || strpos($_POST['description'], '>')) {
-        $errors = true;
-        $messages = 'la description contient un caractère interdit < ou >';
+    if (isset($_POST['description'])) {
+        if (strpos($_POST['description'], '<')|| strpos($_POST['description'], '>')) {
+            $errors = true;
+            $messages = 'la description contient un caractère interdit < ou >';
+        }
     }
     if (!isset($_POST['price'])|| empty($_POST['price'])) {
         $errors['price'] = true;
