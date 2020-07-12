@@ -31,28 +31,34 @@ if($_POST) {
         $article['name'] = $_POST['name'];
     }
     if (isset($_POST['description'])) {
-        $article['description'] = $_POST['description'];
+        if (
+            strpos($_POST['description'], '<')
+            || strpos($_POST['description'], '>')
+        ) {
+            $errors['description'] = true;
+            $messages['description'] = "La description contient un caractère interdit < ou >";
+        } else {
+            $article['description'] = $_POST['description'];
+        }
     }
+
     if (isset($_POST['price'])) {
         $article['price'] = $_POST['price'];
     }
     if (isset($_POST['quantity'])) {
         $article['quantity'] = $_POST['quantity'];
     }
+
     if (!isset($_POST['name'])|| empty($_POST['name'])) {
         $errors['name'] = true;
         $messages['name'] = 'Merci de renseigner le nom de l\'article';
     }
-    elseif (strlen($_POST['name']) < 2 || strlen($_POST['name']) > 100) {
+    elseif (strlen($_POST['name']) < 2 
+    || strlen($_POST['name']) > 100) {
         $errors['name'] = true;
         $messages['name'] = 'Le nombre de caractères doit être inclu en 2 et 100 pour le champ nom';
-    }
-    if (isset($_POST['description'])) {
-        if (strpos($_POST['description'], '<')|| strpos($_POST['description'], '>')) {
-            $errors = true;
-            $messages = 'la description contient un caractère interdit < ou >';
-        }
-    }
+    }    
+
     if (!isset($_POST['price'])|| empty($_POST['price'])) {
         $errors['price'] = true;
         $messages['price'] = 'Merci de renseigner le prix de l\'article';
@@ -65,9 +71,9 @@ if($_POST) {
         $errors['quantity'] = true;
         $messages['quantity'] = 'Merci de renseigner la quantité';
     }
-    elseif(!is_numeric($_POST['price']) || is_float($_POST['quantity']) || ($_POST['price']) < 0){
+    elseif(!is_numeric($_POST['quantity']) || is_float($_POST['quantity']) || ($_POST['quantity']) < 0){
         $errors['price'] = true;
-        $messages['price'] = "La quantité doit être un nombre entier";
+        $messages['price'] = "La quantité doit être un nombre entier positif";
     }
     if (!$errors){
         //Le code suivant permet de rediriger vers la page qui liste les articles existants :

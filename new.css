@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+.invalid-feedback {
+    margin-left: 2%;
+    color: red;
+}
+input {
+    margin: 2%;
+}
+button {
+    width: 10%;
+    margin: 2%;
+}
+textarea {
+    resize: none;
+    margin: 2%;
+    height: 100px;
+}

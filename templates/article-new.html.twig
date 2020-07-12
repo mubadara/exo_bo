@@ -3,36 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../new.css">
     <title>New article</title>
 </head>
 <body>
+<h1>Ajouter un article</h1>
     <form method="post">
-    <input type="text" value="{{ article.name }}" placeholder="name" name="name" class="form-control"/>
+    <input type="text" value="{{ article.name }}" placeholder="Nom" name="name" class="form-control"/>
     {% if errors.name is defined %}
         <div class="invalid-feedback">
             {{ messages.name }}
         </div>
     {% endif %}
-    <input type="text" value="{{ article.description }}" placeholder="description" name="description" class="form-control"/> 
-    {% if errors.description is defined %}
+    <textarea name="description" placeholder="Description"type="text" class="form-control" value="{{ article.description }}"></textarea>
+     {% if errors.description is defined %}
         <div class="invalid-feedback">
-            {{ messages.description }}
+             {{ messages.description }}
         </div>
     {% endif %}
-    <input type="text" value="{{ article.price }}" placeholder="price" name="price" class="form-control">
+    <input type="text" value="{{ article.price }}" placeholder="Prix" name="price" class="form-control">
     {% if errors.price is defined %}
         <div class="invalid-feedback">
             {{ messages.price }}
         </div>
     {% endif %}
-    <input type="text" value="{{ article.quantity }}" placeholder="quantity" name="quantity" class="form-control"/>
+    <input type="text" value="{{ article.quantity }}" placeholder="Quantité" name="quantity" class="form-control"/>
     {% if errors.quantity is defined %}
         <div class="invalid-feedback">
             {{ messages.quantity }}
         </div>
-    {% endif %}
-    <button type="submit" name="submit">envoyer</button>
+    {% endif %} 
+    <button type="submit" name="submit">Envoyer</button>
     </form>
+
 
 </body>
 </html>

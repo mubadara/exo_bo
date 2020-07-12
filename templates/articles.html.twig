@@ -3,18 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Articles</title>
 </head>
 <body>
-    <form>
-    {% for article in articles %}
-     <label for="articleid">ID<input value =" {{ article.id }}"/></label> 
-     <label for="articlename">name<input value="{{ article.name }}"/></label> 
-     <label for="articledescription">description<input value="{{ article.description }}"/></label> 
-     <label for="articleprice">price<input value="{{ article.price }}"/></label> 
-     <label for="articlequantity">quantity<input value="{{ article.quantity }}"/></label> 
+<table class="table">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Description</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Quantité</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+    
+  <tbody>
+  {% for article in articles %}
+    <tr>
+      <th scope="row">{{ article.id }}</th>
+      <td>{{ article.name }}</td>
+      <td>{{ article.description }}</td>
+      <td>{{ article.price }}</td>
+      <td>{{ article.quantity }}</td> 
+      <td><a href="article-edit.php?id={{article.id}}&amp;name={{article.name}}&amp;description={{article.description}}&amp;price={{article.price}}&amp;quantity={{article.quantity}}">Edit </a> / <a href="article-delete.php">Delete</a></td>    </tr>
     {% endfor %}
-    </form>
-        <a href='article-new.php'>New article</a>
+  </tbody>
+</table>  
+        <a href='article-new.php'>Nouvel article</a>
 </body>
 </html>
